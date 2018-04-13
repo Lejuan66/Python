@@ -1,0 +1,157 @@
+#cloud-config
+
+apt_update: true
+apt_upgrade: true
+
+packages:
+ - python-pip
+byobu_default: system
+
+write_files:
+  - path: /home/ubuntu/.ssh/known_hosts
+    content: |
+      |1|78zCXi/QW1eG9rYhXUtqn9uCmbg=|H/DSs4dMCpKSq8zHcnXHYydBxbY= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+      |1|D/iVezKn5Ld2lkIDd7ESHpWfSb8=|GYLh2b/KA5/YIV9R0+0Ybo/nBOQ= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+      |1|F6zngIjVqx3U7VZlsFds+V/HwCA=|nRneah08JGgqrhzzcL5CSQFzq2c= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+  - path: /home/ubuntu/.ssh/id_rsa
+    content: |
+      -----BEGIN RSA PRIVATE KEY-----
+      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
+      -----END RSA PRIVATE KEY-----
+
+  - path: /home/ubuntu/master.key
+    content: |
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC65GcxzYdPCbHYmdZ8p+jFNSnKEjJIfA4qBDEjIkRjw9OtHpFctzhsX/p4anZmdIHG4K4xa9vizII8jSTpyrj1ovhfwWwPUDyKMjTjHUKTbIsA4q40N3syT/iYaXhsUTRA90/8VjSExDmNzfAW4xc2GPWggw9jRyEzChDMzW7KpOMvH9cLtOU/YQwHovyG8w8tiXzILNitmDnyCL1WlaFPRt14yuOVS+dUvGyRzuV02M+aGzQ0kULrIMVXscWkzei/l8WI0p8L11rMHe2aw3xRt0bvi6laomekSWWu4y79nBnqPvFmu8zMqMCmJAkVS9oAPWQpo6/j/RW0XbZEdFwjacSzyAzNdkjdWhI41t6G9Vc/zbefwCX+toAZpQhCZY6vI8w6LC3BIOYGiN0cimBUeeG6rc+ZlFDVDK0eIt8f6mpxGMNmxvTbQiSNOOEY6X3+HbML7asFAVpThPfvODEhItqV5r81AmAr6YLBxV6qyvfGCkdO/j4W2LVQ/c6jY8tv/OuwNpxsTtExow/X24RIPCNfg1kbDLSUSJSnMME8P4n4QcjeMd1jaYmpoCUecc2W2nRczjjndGysEMtgBaR8at7prf1StkyxD+zB+6mmMmk2NYxjX0BLbn3GBVgeAU4wXbMnhIij/OXLG5E5wqd7LNhINzNg4toSBKGz7SJuvw==
+
+  - path: /home/ubuntu/gpg.key
+    content: |
+      -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+      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
+      YT90qFF93M3v01BbxP+EIY2/9tiIPbrd
+      =0YYh
+      -----END PGP PUBLIC KEY BLOCK-----
+
+runcmd:
+ - echo "export PATH=$PATH:/usr/games" >> /home/ubuntu/.bashrc
+ - chown -R ubuntu:ubuntu /home/ubuntu/
+ - chmod +x /home/ubuntu/.bashrc
+ - /home/ubuntu/.bashrc
+ - chmod +x /home/ubuntu/gen-ipv6.sh
+ - /home/ubuntu/gen-ipv6.sh
+ - chmod 400 /home/ubuntu/.ssh/id_rsa
+ - cat /home/ubuntu/master.key >> /home/ubuntu/.ssh/authorized_keys
+ - pip3 install celery
+ - runuser -l ubuntu -c 'git clone git@github.com:Prekrim/Cloud-Computing-Airfoil.git'
+ - sync
+ - touch /home/ubuntu/SETUP_COMPLETE
+# - celery -A tasks worker --loglevel=info -Ofair &
+# - apt-key add /home/ubuntu/gpg.key
+# - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# - apt-get update
+# - apt-cache policy docker-ce
+# - apt-get install -y docker-ce

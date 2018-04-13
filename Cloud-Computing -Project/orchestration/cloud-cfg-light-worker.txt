@@ -1,0 +1,37 @@
+#cloud-config
+
+apt_update: false
+apt_upgrade: false
+
+packages:
+byobu_default: system
+
+write_files:
+  - path: /home/ubuntu/set_server_ip.sh
+    content: |
+      #!/usr/bin/env bash
+      sed -i 's/localhost/'master_ip'/g' /home/ubuntu/Cloud-Computing-Airfoil/tasks.py
+
+  - path: /home/ubuntu/set_container_server_ip.sh
+    content: |
+      #!/usr/bin/env bash
+      sed -i 's/localhost/'master_ip'/g' /home/fenics/acc11/Cloud-Computing-Airfoil/docker_container/py_airfoil.py
+      sed -i 's/localhost/'master_ip'/g' /home/fenics/acc11/Cloud-Computing-Airfoil/tasks.py
+      sed -i 's/worker_name/'hostname'/g' /home/fenics/acc11/Cloud-Computing-Airfoil/docker_container/run_container.sh
+
+  - path: /home/ubuntu/set_container_hostname.sh
+    content: |
+      #!/usr/bin/env bash
+      host=$(hostname)
+      sed -i 's/hostname/'$host'/g' /home/ubuntu/set_container_server_ip.sh
+
+runcmd:
+ - chown -R ubuntu:ubuntu /home/ubuntu/
+ - /home/ubuntu/.bashrc
+ - chmod +x /home/ubuntu/set_container_hostname.sh
+ - /home/ubuntu/set_container_hostname.sh
+ - docker run --name airfoil_container -d --rm -i -t simonljus/acc11:latest bash
+ - docker cp /home/ubuntu/set_container_server_ip.sh airfoil_container:/home/fenics/acc11/
+ - docker exec airfoil_container bash /home/fenics/acc11/pull_script.sh
+ - docker exec airfoil_container bash /home/fenics/acc11/set_container_server_ip.sh
+ - docker exec airfoil_container bash /home/fenics/acc11/Cloud-Computing-Airfoil/docker_container/run_container.sh

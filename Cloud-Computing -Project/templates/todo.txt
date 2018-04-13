@@ -1,0 +1,12 @@
+parsing:
+
+convert , to _
+
+Start angle int
+Stop angle int
+Number of Angles int
+NACA Default int (four digits)
+Number of Samples (int)
+Viscosity (float)
+Speed (float)
+Time (float)

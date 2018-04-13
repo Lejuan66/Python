@@ -1,0 +1,9 @@
+*~
+results/
+*.zip
+*.tar.gz
+*.tgz
+*.org
+__pycache__/
+TAGS
+*.pyc
